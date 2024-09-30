@@ -10,5 +10,9 @@
   {
     "name": "cat3",
     "type": "savings"
+  },
+  {
+    "name": "cat4",
+    "type": "income"
   }
 ]

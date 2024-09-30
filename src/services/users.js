@@ -12,14 +12,14 @@ const sequelize = require("../db");
 const accessTokenTTL = "15m";
 const refreshTokenTTL = "1h";
 
-const schema = Joi.object({
-  email: Joi.string().email({ tlds: { allow: ["com", "fr"] } }),
-  password: Joi.string().pattern(
-    /^(?=.*[A-Z])(?=.*[!@#$&*,;?])(?=.*[0-9])(?=.*[a-z]).{8,}$/
-  ),
-});
-
 const create = async ({ body }) => {
+  const schema = Joi.object({
+    email: Joi.string().email({ tlds: { allow: ["com", "fr"] } }),
+    password: Joi.string().pattern(
+      /^(?=.*[A-Z])(?=.*[!@#$&*,;?])(?=.*[0-9])(?=.*[a-z]).{8,}$/
+    ),
+    balance: Joi.number(),
+  });
   const { error } = schema.validate(body, { presence: "required" });
   if (error) {
     return { status: 400, error: error.message };
@@ -51,6 +51,12 @@ const create = async ({ body }) => {
 };
 
 const login = async ({ body: { email, password } }) => {
+  const schema = Joi.object({
+    email: Joi.string().email({ tlds: { allow: ["com", "fr"] } }),
+    password: Joi.string().pattern(
+      /^(?=.*[A-Z])(?=.*[!@#$&*,;?])(?=.*[0-9])(?=.*[a-z]).{8,}$/
+    ),
+  });
   const { error } = schema.validate(
     { email, password },
     { presence: "required" }

@@ -18,11 +18,7 @@ const Account = sequelize.define(
       type: DataTypes.ENUM("personal", "joint"),
       allowNull: false,
     },
-    initialBalance: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
-    currentBalance: {
+    balance: {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },

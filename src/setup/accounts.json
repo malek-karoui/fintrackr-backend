@@ -2,13 +2,11 @@
   {
     "name": "Personal",
     "type": "personal",
-    "initialBalance": 0,
-    "currentBalance": 0
+    "balance": 0
   },
   {
     "name": "Joint",
     "type": "joint",
-    "initialBalance": 0,
-    "currentBalance": 0
+    "balance": 0
   }
 ]

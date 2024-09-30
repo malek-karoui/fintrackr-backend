@@ -25,6 +25,10 @@ const User = sequelize.define(
       type: DataTypes.BLOB,
       allowNull: false,
     },
+    balance: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
   },
   {
     timestamps: true,
