@@ -54,7 +54,7 @@ const login = async (body) => {
   if (!crypto.timingSafeEqual(user.password, hashedPassword)) {
     return { status: 401, error: "Invalid password" };
   }
-  const tokenPayload = { id: user.id, email: user.email };
+  const tokenPayload = { id: user.id };
   const refreshToken = jwt.sign(tokenPayload, jwtSecret, {
     expiresIn: refreshTokenTTL,
   });
