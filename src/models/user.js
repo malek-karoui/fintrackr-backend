@@ -1,5 +1,8 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../db");
+const Account = require("./account");
+const Category = require("./category");
+const Transaction = require("./transaction");
 
 const User = sequelize.define(
   "user",
@@ -28,5 +31,14 @@ const User = sequelize.define(
     sequelize,
   }
 );
+
+User.hasMany(Account, { onDelete: "CASCADE" });
+Account.belongsTo(User);
+
+User.hasMany(Category, { onDelete: "CASCADE" });
+Category.belongsTo(User);
+
+User.hasMany(Transaction, { onDelete: "CASCADE" });
+Transaction.belongsTo(User);
 
 module.exports = User;

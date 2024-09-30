@@ -1,0 +1,14 @@
+[
+  {
+    "name": "cat1",
+    "type": "needs"
+  },
+  {
+    "name": "cat2",
+    "type": "wants"
+  },
+  {
+    "name": "cat3",
+    "type": "savings"
+  }
+]
